@@ -1,0 +1,50 @@
+sdkversion: "4.1.0"
+name: "vpn_compliancetest_ruby"
+version: 1.0
+vendor: "rhomobile"
+build: "release"
+applog: "rholog.txt"
+app_type: "rhoelements"
+iphone:
+  configuration: "Release"
+  sdk: "iphoneos7.1"
+  provisionprofile: 
+  codesignidentity: "iPhone Developer"
+  entitlements: ./production/Entitlements.plist
+  BundleIdentifier: "com.rhomobile.vpncompliancetestruby"
+  BundleURLScheme: "vpncompliancetestruby"
+wp8:
+  productid: "da37e740-9d27-0131-ad03-0023241f0ea9"
+android:
+  manifest_template: AndroidManifest.erb
+  ajax_api_bridge: false
+  version: "4.2.2"
+  abis: [arm, x86]
+  extensions:
+    - barcode
+    - cardreader
+    - indicators
+    - mediaplayer
+    - audiocapture
+    - printing
+    - printing_zebra
+    - sensor
+    - signature
+    - screenorientation
+wm:
+  ajax_api_bridge: false
+  sdk: "Windows Mobile 6.5.3 Professional DTK (ARMV4I)"
+  extensions:
+    - barcode
+    - cardreader
+    - indicators
+    - mediaplayer
+    - audiocapture
+    - printing
+    - printing_zebra
+    - sensor
+    - signature
+    - screenorientation
+extensions:
+  - rhoconnect-client
+capabilities:
