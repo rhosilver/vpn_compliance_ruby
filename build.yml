@@ -1,50 +1,61 @@
-sdkversion: "4.1.0"
-name: "vpn_compliancetest_ruby"
+#sdkversion: "4.1.0"
+name: "compliancetest_ruby"
 version: 1.0
 vendor: "rhomobile"
-build: "release"
+build: "debug"
 applog: "rholog.txt"
 app_type: "rhoelements"
 iphone:
   configuration: "Release"
-  sdk: "iphoneos7.1"
+  sdk: iphoneos8.2
   provisionprofile: 
   codesignidentity: "iPhone Developer"
-  entitlements: ./production/Entitlements.plist
-  BundleIdentifier: "com.rhomobile.vpncompliancetestruby"
-  BundleURLScheme: "vpncompliancetestruby"
+  entitlements: 
+  BundleIdentifier: "com.rhomobile.compliancerubytest"
+  BundleURLScheme: "compliancerubytest"
+  extensions:
+   - audiocapture
+   - barcode
+   - cardreader
+   - indicators
+   - mediacapture
+   - mediaplayer
+   - printing
+   - printing_zebra
+   - screenorientation
+   - signature
+   - sensor
 wp8:
   productid: "da37e740-9d27-0131-ad03-0023241f0ea9"
+  extensions:
+   - barcode
+   - mediacapture
 android:
-  manifest_template: AndroidManifest.erb
   ajax_api_bridge: false
   version: "4.2.2"
-  abis: [arm, x86]
   extensions:
-    - barcode
-    - cardreader
-    - indicators
-    - mediaplayer
-    - audiocapture
-    - printing
-    - printing_zebra
-    - sensor
-    - signature
-    - screenorientation
+   - audiocapture
+   - barcode
+   - cardreader
+   - indicators
+   - mediaplayer
+   - mediacapture
+   - printing
+   - printing_zebra
+   - screenorientation
+   - signature
+   - sensor
 wm:
   ajax_api_bridge: false
-  sdk: "Windows Mobile 6.5.3 Professional DTK (ARMV4I)"
   extensions:
-    - barcode
-    - cardreader
-    - indicators
-    - mediaplayer
-    - audiocapture
-    - printing
-    - printing_zebra
-    - sensor
-    - signature
-    - screenorientation
-extensions:
-  - rhoconnect-client
-capabilities:
+   - audiocapture
+   - barcode
+   - cardreader
+   - indicators
+   - mediacapture
+   - mediaplayer
+   - printing
+   - printing_zebra
+   - screenorientation
+   - signature
+   - sensor
