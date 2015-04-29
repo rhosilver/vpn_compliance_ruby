@@ -28,7 +28,8 @@ class SystemController < Rho::RhoController
     else
       @data = 'No Property param'
     end
-    Rho::WebView.executeJavascript("displayResult(#{@params['prop']},#{@data});")
+    Rho::WebView.executeJavascript("document.getElementById('actResult').innerHTML= '#{@data}'")
+    Rho::WebView.executeJavascript("document.getElementById('actResult').style.display='block'")
   end
   
   def get_properties
@@ -40,11 +41,15 @@ class SystemController < Rho::RhoController
   
   def get_props
     if @params['prop']
-      @data = Rho::System.getProperties(@params['prop'])
+      param = []
+      param << @params['prop']      
+      @data1 = Rho::System.getProperties(param)
+      @data = @data1.to_json
+      Rho::WebView.executeJavascript("document.getElementById('actResult').innerHTML= JSON.stringify(#{@data})")
     else
-      @data = 'prperties not found'
+      Rho::WebView.executeJavascript("document.getElementById('actResult').innerHTML= 'properties not found'")
     end
-    Rho::WebView.executeJavascript("displayResult(#{@params['prop']},#{@data});")
+    Rho::WebView.executeJavascript("document.getElementById('actResult').style.display='block'")
   end
   
   def get_properties_cb
@@ -91,6 +96,9 @@ class SystemController < Rho::RhoController
   def app_install
     if @params['file']
       Rho::System.applicationInstall(@params['file'])
+    else
+      fname = "itms-services://?action=download-manifest&url=https://rhomobile-suite.s3.amazonaws.com/test_data/TestApp/TestApp.plist"
+      Rho::System.applicationInstall(fname)
     end
   end
 

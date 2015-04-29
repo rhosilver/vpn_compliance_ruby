@@ -372,29 +372,6 @@ describe('Printer Zebra', function() {
         });
     });
 
-    describe('printRawString method', function() {
-      
-        it('should print ZPL Command with callback', function() {
-            dispTestCaseRunning("print ZPL Command ");
-            dispExpectedResult("should print Zebra Printing label and status should return PRINTER_STATUS_SUCCESS");
-            //Common Method implemented to wait for tester to run the test.Code available in specHelper.js
-            _result.waitToRunTest();
-            //doPrintTestLabel();
-            doPrintRawCommand('zpl');
-            _result.waitForResponse();
-        });
-        it('should print CPCL Command with callback', function() {
-            dispTestCaseRunning("print CPCL Command ");
-            dispExpectedResult("should print Hello World label and status should return PRINTER_STATUS_SUCCESS");
-            //Common Method implemented to wait for tester to run the test.Code available in specHelper.js
-            _result.waitToRunTest();
-            //doPrintTestLabel();
-            doPrintRawCommand('ccpl');
-            _result.waitForResponse();
-        });
-
-    });
-
 
     //sendFileContents method
 
@@ -661,6 +638,29 @@ describe('Printer Zebra', function() {
     describe('printStoredFormatWithArray method', function() {
 
         doprintStoredFormatWithArray('zplstoredformat', 'E:FORMAT.ZPL', arrayzpl, 'with', "ZPL Language");
+
+    });
+
+    describe('printRawString method', function() {
+      
+        it('should print ZPL Command with callback', function() {
+            dispTestCaseRunning("print ZPL Command ");
+            dispExpectedResult("should print Zebra Printing label and status should return PRINTER_STATUS_SUCCESS");
+            //Common Method implemented to wait for tester to run the test.Code available in specHelper.js
+            _result.waitToRunTest();
+            //doPrintTestLabel();
+            doPrintRawCommand('zpl');
+            _result.waitForResponse();
+        });
+        it('should print CPCL Command with callback', function() {
+            dispTestCaseRunning("print CPCL Command ");
+            dispExpectedResult("should print Hello World label and status should return PRINTER_STATUS_SUCCESS");
+            //Common Method implemented to wait for tester to run the test.Code available in specHelper.js
+            _result.waitToRunTest();
+            //doPrintTestLabel();
+            doPrintRawCommand('ccpl');
+            _result.waitForResponse();
+        });
 
     });
 

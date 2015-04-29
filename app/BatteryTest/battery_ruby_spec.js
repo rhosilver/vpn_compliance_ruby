@@ -26,6 +26,42 @@ describe("Battery Manual FD Tests", function () {
   	});          
   }
 
+  it("VT200-0701(A)|Call batteryStatus method and callback|", function () {
+      dispTestCaseRunning("VT200-0701 batteryStatus method with default properties");
+      dispExpectedResult("batteryStatus callback should get fire");
+      
+      _result.waitToRunTest();
+
+      runs(function () {
+        Ruby.call('BatteryTest','battery_status_default');
+      });
+
+      _result.waitForResponse();
+      
+      runs(function () {
+          Ruby.call('BatteryTest','stop_battery_status');
+      });
+
+    });
+
+    it("VT200-0701|Call batteryStatus method with Hash Property trigger to periodic, refreshInterval to 8000 and callback|", function () {
+      dispTestCaseRunning("VT200-0701 batteryStatus method with Hash Property trigger to periodic with callback default refresh interval check for every 8 seconds");
+      dispExpectedResult("batteryStatus callback should get fire and batteryStatus should updated for every 8 seconds");
+      
+      _result.waitToRunTest();
+
+      runs(function () {
+        Ruby.call('BatteryTest','battery_status');
+      });
+
+      _result.waitForResponse();
+      
+      runs(function () {
+          Ruby.call('BatteryTest','stop_battery_status');
+      });
+
+    });
+
   if(!isAndroidPlatform())
   {
        

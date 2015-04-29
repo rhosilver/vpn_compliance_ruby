@@ -22,10 +22,9 @@ end
 
 # Callback Method
 def listen_callback # need to check
+	Alert.show_popup(@params.to_json.to_s)
 	if @params['data']
-
 		@cbdata = @params['data']
-
 		if (@cbdata['message'] && @cbdata['message'] == 'Message to service')
 	        Alert.show_popup("Test case passed!")
 	    elsif (@cbdata['reply'] && @cbdata['reply'] == 'Message to service')
@@ -138,7 +137,7 @@ def intent_listen_send
 				params_constructor(Rho::Intent::BROADCAST,"","com.rhomobile.BROADCAST",["com.rhomobile.compliancetest_ruby"],"","","","",data)
 			when '392'
 				data = { 'myData' => 'This is broadcast data 3!' }
-				params_constructor(Rho::Intent::BROADCAST,"","","","vpncompliancetestruby","","","",data)
+				params_constructor(Rho::Intent::BROADCAST,"","","","compliancetestruby","","","",data)
 			when '393'
 				data = { 'myData' => 'This is broadcast data 3!' }
 				params_constructor(Rho::Intent::BROADCAST,"","","","rhomobile compliancetest_ruby/compliancetest_ruby.exe","","","",data)

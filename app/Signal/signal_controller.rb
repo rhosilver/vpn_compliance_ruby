@@ -8,7 +8,8 @@ class SignalController < Rho::RhoController
 
 def status_callback
   #@result = @params.to_json
-  @result = ""
+  	@result = ""
+  	@result += '<br/>Time Now: ' + Time.now.to_s
 	@result += '<br/>signalStrength  :- ' + @params['signalStrength'].to_s
 	@result += '<br/>essid  :- ' + @params['essid'].to_s
 	@result += '<br/>macAddress  :- ' + @params['macAddress'].to_s

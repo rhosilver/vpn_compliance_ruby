@@ -69,7 +69,7 @@ end
 #callback method for capture datauri
 def callbackDatauri
 	status = @params['status']
-	image = @params['imageUri']
+	image = @params['imageUri'].gsub(/(?=\W)/, '\\')
 	Rho::WebView.executeJavascript('callbackStatus("'+status+'")')
 	Rho::WebView.executeJavascript('callbackDataURI("'+image+'")')
 	return
@@ -82,8 +82,10 @@ def signature_fullscr
 end
 
 def signature_fullscr_optImage
-	Rho::Signature.bgColor = '#FF0000'
-    Rho::Signature.penColor = '#0000FF'
+	Rho::Signature.bgColor = '#000000'
+    Rho::Signature.penColor = '#FFFFFF'	
+	# Rho::Signature.bgColor = '#FF0000'
+ #    Rho::Signature.penColor = '#0000FF'
     Rho::Signature.penWidth = 3
     fileName = Rho::RhoFile.join(Rho::Application.databaseBlobFolder, @params['vtid'])
     Rho::Signature.takeFullScreen({'compressionFormat' => @params['const'], 'fileName' => fileName, 'outputFormat' => Rho::Signature::OUTPUT_FORMAT_IMAGE}, url_for(:action => :callbackImage))
@@ -108,13 +110,14 @@ def signature_show_opt
 end
 
 def signature_set_allprops
-	Rho::Signature.bgColor = '#00FF00'
-    Rho::Signature.penColor = '#FF800000'
-    Rho::Signature.penWidth = 5
-    Rho::Signature.left = 15
-    Rho::Signature.top = 60
-    Rho::Signature.height = 150
-    Rho::Signature.width = 200
+	Rho::Signature.fileName = Rho::RhoFile.join(Rho::Application.databaseBlobFolder, @params['vtid'])
+	# Rho::Signature.bgColor = '#00FF00'
+ #    Rho::Signature.penColor = '#FF800000'
+ #    Rho::Signature.penWidth = 5
+ #    Rho::Signature.left = 15
+ #    Rho::Signature.top = 60
+ #    Rho::Signature.height = 150
+ #    Rho::Signature.width = 200
     Rho::Signature.outputFormat = 'dataUri'
     Rho::Signature.border = true
     Rho::Signature.show()
@@ -130,12 +133,10 @@ end
 
 def signature_hide
 	Rho::Signature.hide()
-	return
 end
 
 def signature_clear
 	Rho::Signature.clear()
-	return
 end
 
 

@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../helpers/specHelpers.js"></script>
 
     <!-- include spec files here... -->
-    <script type="text/javascript" src="camera_ruby_spec.js"></script>
+    <script type="text/javascript" src="camera_spec.js"></script>
     <style type="text/css">
         #notsupported{
             color:red;
@@ -67,27 +67,11 @@
 
 </head>
 <body>
-    </div><br/>
-    <b>Available scanners: (select any from the drop down) </b>
-    <div>
-        <select id="camera_type"></select>
-    </div><br/>
     <div id="imageUriDiv">
         <img src="" id="imageUri"></img>
     </div><br>
     <div id="notsupported"></div>
+    <div id="expected"></div>
+    <div id="image"></div>
 </body>
-<script type="text/javascript">
-    (function(){
-        $('#camera_type').empty();
-        var cameras = Rho.Camera.enumerate();
-        
-        for (var i = 0; i < cameras.length; i++) {
-            $('#camera_type').append($('<option />', {
-                value: cameras[i].cameraType,
-                text : cameras[i].cameraType 
-            }));
-        }
-     })();
-</script>
 </html>

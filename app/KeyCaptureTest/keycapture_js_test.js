@@ -3,6 +3,10 @@ function callbackdata(data)
 {
 	document.getElementById("clbkData").innerHTML = data;
 }
+function callbackdatafunc(data)
+{
+	document.getElementById("clbkDatadiv").innerHTML = data;
+}
 
 var hardwareKeysTest = {};
 

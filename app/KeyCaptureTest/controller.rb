@@ -10,6 +10,10 @@ def capturekey_callback
 	Rho::WebView.executeJavascript("callbackdata(#{@params['keyValue']});")
 end
 
+def capturekey_callback_method
+	Rho::WebView.executeJavascript("callbackdatafunc(#{@params['keyValue']});")
+end
+
 def trigger_callback
 	Rho::WebView.executeJavascript("callbackdata(#{@params['triggerFlag']});")
 end
