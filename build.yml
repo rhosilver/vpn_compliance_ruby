@@ -10,7 +10,7 @@ iphone:
   sdk: iphoneos8.2
   provisionprofile: 
   codesignidentity: "iPhone Developer"
-  entitlements: 
+  entitlements: ./production/Entitlements.plist
   BundleIdentifier: "com.rhomobile.vpncompliancerubytest"
   BundleURLScheme: "vpncompliancerubytest"
   extensions:
