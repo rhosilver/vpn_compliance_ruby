@@ -11,8 +11,8 @@ iphone:
   provisionprofile: 
   codesignidentity: "iPhone Developer"
   entitlements: ./production/Entitlements.plist
-  BundleIdentifier: "com.rhomobile.vpncompliancerubytest"
-  BundleURLScheme: "vpncompliancerubytest"
+  BundleIdentifier: "com.rhomobile.vpncompliancetestruby"
+  BundleURLScheme: "vpncompliancetestruby"
   extensions:
    - audiocapture
    - barcode
